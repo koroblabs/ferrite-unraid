@@ -9,8 +9,8 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/syntlyx/ferrite-server/issues</Support>
   <Project>https://github.com/syntlyx/ferrite-server</Project>
-  <Overview>Ferrite is a Rust DNS sinkhole and filtering API server. It blocks ads and trackers at the DNS level, supports encrypted upstream resolvers, stores query statistics, and provides a web/API management surface.</Overview>
-  <Category>Network:DNS Network:Management Security:</Category>
+  <Overview>Ferrite is self-hosted DNS that blocks ads and trackers — and routes chosen domains or devices through a tunnel. A Pi-hole-style sinkhole in one Rust binary that goes further: selective routing through built-in userspace WireGuard (no root, no TUN), SOCKS5/Tor, or a DPI-evasion path; encrypted upstream resolvers (DoH/DoT/DoQ) with DNSSEC forwarding; per-device query history keyed by MAC; live query log and a web/API management surface with hot-reload.</Overview>
+  <Category>Network:DNS Network:VPN Network:Management Security:</Category>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/ferrite/ferrite.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/icons/ferrite.png</Icon>
@@ -20,14 +20,16 @@
   <DateInstalled/>
   <DonateText/>
   <DonateLink/>
-  <Requires>Ports 53 TCP/UDP and 80 TCP must be available on the selected Unraid network/IP. A custom Docker network or fixed IP is recommended because the Unraid web UI often already uses host port 80. All Ferrite config, SQLite data, blocklist cache, snapshots, and web assets are stored under /mnt/user/appdata/ferrite.</Requires>
+  <Requires>Ports 53 TCP/UDP and 80 TCP must be available on the selected Unraid network/IP; the selective-routing (tunnels) feature additionally needs 443 TCP reachable unmapped. A custom Docker network or fixed IP (br0) is recommended: the Unraid web UI often already uses host ports 80/443, and routed domains require clients to reach Ferrite on the real ports 80/443. All Ferrite config, SQLite data, blocklist cache, snapshots, and web assets are stored under /mnt/user/appdata/ferrite.</Requires>
   <Config Name="Appdata" Target="/var/lib/ferrite" Default="/mnt/user/appdata/ferrite" Mode="rw" Description="Stores Ferrite config, SQLite database, blocklist cache, snapshots, and web assets." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/ferrite</Config>
   <Config Name="DNS TCP" Target="53" Default="53" Mode="tcp" Description="DNS TCP listener for name resolution." Type="Port" Display="always" Required="true" Mask="false">53</Config>
   <Config Name="DNS UDP" Target="53" Default="53" Mode="udp" Description="DNS UDP listener for name resolution." Type="Port" Display="always" Required="true" Mask="false">53</Config>
-  <Config Name="Web UI" Target="80" Default="80" Mode="tcp" Description="Ferrite API and web UI." Type="Port" Display="always" Required="true" Mask="false">80</Config>
+  <Config Name="Web UI" Target="80" Default="80" Mode="tcp" Description="Ferrite API and web UI. Also intercepts HTTP for routed domains (demultiplexed by Host header)." Type="Port" Display="always" Required="true" Mask="false">80</Config>
+  <Config Name="HTTPS Routing" Target="443" Default="443" Mode="tcp" Description="HTTPS (SNI) intercept for the selective-routing/tunnels feature. Only bound while routing is enabled. Must stay 443:443 for routing to work; leave unmapped if tunnels are not used." Type="Port" Display="always" Required="false" Mask="false">443</Config>
   <Config Name="Server Release Version" Target="FERRITE_SERVER_VERSION" Default="latest" Mode="" Description="Use latest to install the newest Ferrite release on container start. Set a fixed version, for example 0.1.1, to disable automatic server release updates on restart." Type="Variable" Display="advanced" Required="false" Mask="false">latest</Config>
   <Config Name="Web Release Version" Target="FERRITE_WEB_VERSION" Default="" Mode="" Description="Optional web UI release version. Leave blank to follow Server Release Version; set a fixed version to pin the web UI separately." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Panel IP" Target="FERRITE_PANEL_IP" Default="" Mode="" Description="Optional LAN IP for the built-in fe.te A record. In bridge networking set this to the Unraid host IP, for example 192.168.1.5. Leave blank to auto-detect." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Panel Domain" Target="FERRITE_PANEL_DOMAIN" Default="" Mode="" Description="Optional override for the built-in panel shortcut domain. Leave blank for the default fe.te." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Panel URL" Target="FERRITE_PANEL_URL" Default="" Mode="" Description="Optional startup-log URL for the panel shortcut. If Web UI is mapped to a non-80 host port, set this to http://fe.te:&lt;port&gt;." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="GitHub Release Token" Target="FERRITE_RELEASE_TOKEN" Default="" Mode="" Description="Optional GitHub token used when the container downloads server and web releases on start. Leave blank for public releases. Set a token only if you hit GitHub API rate limits (anonymous requests are capped at 60/hour per IP) or pull from a private mirror." Type="Variable" Display="advanced" Required="false" Mask="true"/>
 </Container>
