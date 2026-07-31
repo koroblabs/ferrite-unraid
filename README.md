@@ -5,8 +5,10 @@ DNS that blocks ads & trackers and routes chosen domains or devices through a
 tunnel. A Pi-hole-style sinkhole that goes further: send selected domains — or
 whole devices — through **WireGuard, SOCKS5 (Tor), or a DPI-evasion path**,
 with encrypted upstream resolvers (DoH/DoT/DoQ), DNSSEC forwarding, per-device
-query history, and a web/API management surface. One Rust binary, userspace
-WireGuard — no root, no TUN device.
+query history, and a web/API management surface. One Rust binary; WireGuard runs
+kernel-backed for line-rate throughput (the template grants `NET_ADMIN`, and
+Unraid 6.9+ already ships the module) and falls back to an in-process userspace
+tunnel — no root, no TUN device — wherever that is unavailable.
 
 The template pulls the container image from the GitHub Container Registry:
 
