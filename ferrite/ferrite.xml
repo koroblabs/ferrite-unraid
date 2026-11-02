@@ -9,7 +9,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/syntlyx/ferrite-server/issues</Support>
   <Project>https://github.com/syntlyx/ferrite-server</Project>
-  <Overview>Ferrite is self-hosted DNS that blocks ads and trackers — and routes chosen domains or devices through a tunnel. A Pi-hole-style sinkhole in one Rust binary that goes further: selective routing through built-in WireGuard — kernel-backed for line-rate throughput where the host allows it, with an in-process userspace fallback that needs nothing from the kernel — plus SOCKS5/Tor and a DPI-evasion path; encrypted upstream resolvers (DoH/DoT/DoQ) with DNSSEC forwarding; per-device query history keyed by MAC; live query log and a web/API management surface with hot-reload.</Overview>
+  <Overview>Ferrite is a self-hosted DNS filter and router for the home network. It blocks ads, trackers and malware for every device; applies per-device profiles — blocked services such as TikTok or Roblox, weekly schedules, SafeSearch and YouTube Restricted Mode, default-deny; and sends chosen domains, services or devices through built-in WireGuard (kernel-backed for line-rate throughput where the host allows it, in-process userspace otherwise), SOCKS5/Tor or a DPI-evasion path. Encrypted upstreams (DoH/DoT/DoQ), a live query log and per-device activity, notifications to ntfy, Telegram, Discord or a webhook, and a REST API — one Rust binary, configured from its web panel.</Overview>
   <Category>Network:DNS Network:VPN Network:Management Security:</Category>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/ferrite/ferrite.xml</TemplateURL>

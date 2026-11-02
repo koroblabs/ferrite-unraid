@@ -1,14 +1,18 @@
 # Ferrite Unraid Templates
 
-Unraid Community Applications template repository for **Ferrite** — self-hosted
-DNS that blocks ads & trackers and routes chosen domains or devices through a
-tunnel. A Pi-hole-style sinkhole that goes further: send selected domains — or
-whole devices — through **WireGuard, SOCKS5 (Tor), or a DPI-evasion path**,
-with encrypted upstream resolvers (DoH/DoT/DoQ), DNSSEC forwarding, per-device
-query history, and a web/API management surface. One Rust binary; WireGuard runs
-kernel-backed for line-rate throughput (the template grants `NET_ADMIN`, and
-Unraid 6.9+ already ships the module) and falls back to an in-process userspace
-tunnel — no root, no TUN device — wherever that is unavailable.
+Unraid Community Applications template repository for **Ferrite** — a
+self-hosted DNS filter and router for the home network. Ferrite blocks ads,
+trackers and malware for every device, applies per-device profiles (blocked
+services such as TikTok or Roblox, schedules, SafeSearch, default-deny), and
+sends chosen domains, services or devices through **WireGuard, SOCKS5 (Tor) or
+a DPI-evasion path**. It resolves through encrypted upstreams (DoH/DoT/DoQ),
+shows what each device is doing, and notifies you when a tunnel goes down or a
+new device joins.
+
+One Rust binary. WireGuard runs kernel-backed for line-rate throughput (the
+template grants `NET_ADMIN`, and Unraid 6.9+ already ships the module) and
+falls back to an in-process userspace tunnel — no root, no TUN device —
+wherever that is unavailable.
 
 The template pulls the container image from the GitHub Container Registry:
 
