@@ -29,6 +29,6 @@ jobs:
 
       - name: Check published references
         run: |
-          grep -q "ghcr.io/syntlyx/ferrite-server:latest" ferrite/ferrite.xml
-          grep -q "https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/ferrite/ferrite.xml" ferrite/ferrite.xml
-          grep -q "https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/icons/ferrite.png" ferrite/ferrite.xml
+          grep -q "ghcr.io/koroblabs/ferrite-server:latest" ferrite/ferrite.xml
+          grep -q "https://raw.githubusercontent.com/koroblabs/ferrite-unraid/main/ferrite/ferrite.xml" ferrite/ferrite.xml
+          grep -q "https://raw.githubusercontent.com/koroblabs/ferrite-unraid/main/icons/ferrite.png" ferrite/ferrite.xml

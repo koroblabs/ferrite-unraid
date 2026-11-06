@@ -17,7 +17,7 @@ wherever that is unavailable.
 The template pulls the container image from the GitHub Container Registry:
 
 ```text
-ghcr.io/syntlyx/ferrite-server:latest
+ghcr.io/koroblabs/ferrite-server:latest
 ```
 
 ## Install via Community Applications
@@ -144,7 +144,7 @@ identification.
 ## Screenshots
 
 Listing screenshots are captured from the running web UI and live in the
-[web UI repo](https://github.com/syntlyx/ferrite-web/tree/main/screenshots),
+[web UI repo](https://github.com/koroblabs/ferrite-web/tree/main/screenshots),
 referenced from the Community Applications listing:
 
 | File | View |

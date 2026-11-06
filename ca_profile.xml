@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Maintainer>
-  <Icon>https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/icons/ferrite.png</Icon>
+  <Icon>https://raw.githubusercontent.com/koroblabs/ferrite-unraid/main/icons/ferrite.png</Icon>
   <Profile>Unraid templates for Ferrite — self-hosted DNS that blocks ads and trackers and routes chosen domains or devices through WireGuard, SOCKS5/Tor, or DPI evasion. One Rust binary: encrypted upstreams (DoH/DoT/DoQ), DNSSEC forwarding, per-device stats, web UI.</Profile>
-  <WebPage>https://github.com/syntlyx/ferrite-server</WebPage>
-  <Forum>https://github.com/syntlyx/ferrite-server/issues</Forum>
+  <WebPage>https://github.com/koroblabs/ferrite-server</WebPage>
+  <Forum>https://github.com/koroblabs/ferrite-server/issues</Forum>
 </Maintainer>

@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>Ferrite</Name>
-  <Repository>ghcr.io/syntlyx/ferrite-server:latest</Repository>
-  <Registry>https://github.com/syntlyx/ferrite-server/pkgs/container/ferrite-server</Registry>
+  <Repository>ghcr.io/koroblabs/ferrite-server:latest</Repository>
+  <Registry>https://github.com/koroblabs/ferrite-server/pkgs/container/ferrite-server</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/syntlyx/ferrite-server/issues</Support>
-  <Project>https://github.com/syntlyx/ferrite-server</Project>
+  <Support>https://github.com/koroblabs/ferrite-server/issues</Support>
+  <Project>https://github.com/koroblabs/ferrite-server</Project>
   <Overview>Ferrite is a self-hosted DNS filter and router for the home network. It blocks ads, trackers and malware for every device; applies per-device profiles — blocked services such as TikTok or Roblox, weekly schedules, SafeSearch and YouTube Restricted Mode, default-deny; and sends chosen domains, services or devices through built-in WireGuard (kernel-backed for line-rate throughput where the host allows it, in-process userspace otherwise), SOCKS5/Tor or a DPI-evasion path. Encrypted upstreams (DoH/DoT/DoQ), a live query log and per-device activity, notifications to ntfy, Telegram, Discord or a webhook, and a REST API — one Rust binary, configured from its web panel.</Overview>
   <Category>Network:DNS Network:VPN Network:Management Security:</Category>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/ferrite/ferrite.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/syntlyx/ferrite-unraid/main/icons/ferrite.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/koroblabs/ferrite-unraid/main/ferrite/ferrite.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/koroblabs/ferrite-unraid/main/icons/ferrite.png</Icon>
   <ExtraParams>--cap-add=NET_BIND_SERVICE --cap-add=NET_ADMIN</ExtraParams>
   <PostArgs/>
   <CPUset/>
